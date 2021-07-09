@@ -59,7 +59,13 @@ install_packages(){
 }
 
 setup_dotfiles(){
-	echo "Empty function"
+	echo ""
+	echo "$CYAN [Dotfiles] $ENDCOLOR Symlink dotfiles"
+	echo ""
+	for dotfile in $dotsDetect; do
+    	ln -svfn $dots$dotfile ~/$dotfile 2>/dev/null
+	done;
+	
 }
 
 setup_config(){
