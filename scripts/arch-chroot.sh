@@ -11,7 +11,7 @@
 
 	line="en_US.UTF-8 UTF-8"; sed -i "/^#$line/ c$line" /etc/locale.gen
 	locale-gen
-	# echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+	echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 	
 	# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales. Generate the locales by running: 
 	# Create the locale.conf(5) file, and set the LANG variable accordingly:
@@ -39,9 +39,9 @@
 
 	# 
 	cat << EOT >> /etc/hosts
-	127.0.0.1		localhost
-	::1				localhost
-	127.0.1.1		overlord
+127.0.0.1		localhost
+::1				localhost
+127.0.1.1		overlord
 EOT
 	
 	echo ""
