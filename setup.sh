@@ -88,8 +88,8 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 
 	# Verify the bootmode
 
-	echo "HAVE TO SET THE PARTION CORRECT? FOLLOW MY TEMPLATE BEFOREHAND!!!"
-	echo "Verify boot mode"
+	echo "$RED HAVE TO SET THE PARTION CORRECT? FOLLOW MY TEMPLATE BEFOREHAND!!! $ENDCOLOR"
+	echo "$GREEN Verify boot mode $ENDCOLOR"
 	echo ""
 	echo ""
 	echo ""
@@ -99,17 +99,17 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 
 	# Network settings
 
-	echo "Starting network setup..."
-	echo "Cheking for ip adress"
+	echo "$GREEN Starting network setup... $ENDCOLOR"
+	echo "$GREEN Cheking for ip adress $ENDCOLOR"
 	echo ""
 	ip link
 
 
-	echo "For wireless connection, make sure the card is not blocked with rfkill."
-	echo "Use the tool iwctl for connecting to a wifi"
+	echo "$MAGENTA For wireless connection, make sure the card is not blocked with rfkill. $ENDCOLOR"
+	echo "$MAGENTA Use the tool iwctl for connecting to a wifi $ENDCOLOR"
 
-	echo "Testing if there is a internet connection"
-	echo "pinging google.com"
+	echo "Testing if there is a internet connection $ENDCOLOR"
+	echo "pinging google.com $ENDCOLOR"
 
 	ping -c 5 google.com
 
@@ -117,11 +117,11 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 	echo ""
 
 	# Update the system clock
-	echo "Updating the system clock"
+	echo "$GREEN Updating the system clock $ENDCOLOR"
 	timedatectl set-ntp true
 	echo ""
 
-	echo "Checking status for the sytem clock"
+	echo "$GREEN Checking status for the sytem clock $ENDCOLOR"
 	timedatectl status
 	echo ""
 	echo ""
@@ -148,7 +148,7 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 
 	# Remeber to write table 
 
-	echo "Making filesystem"
+	echo "$GREEN Making filesystem $ENDCOLOR"
 
 	mkfs.fat -F32 /dev/sda1
 
@@ -162,7 +162,7 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 
 	echo ""
 	echo ""
-	echo "Installing base, Linux and Linux Firmware..."
+	echo "$GREEN Installing base, Linux and Linux Firmware... $ENDCOLOR"
 	echo ""
 	echo ""
 	pacstrap /mnt base linux linux-firmware
