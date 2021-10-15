@@ -81,7 +81,7 @@ EOT
 	echo ""
 	echo "Setting up EFI"
 	echo ""
-	mdkir /boot/EFI
+	mkdir /boot/EFI
 	mount /dev/sda1 /boot/EFI
 
 	echo ""

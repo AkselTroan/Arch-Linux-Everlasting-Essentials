@@ -170,7 +170,12 @@ install_arch_linux(){  # This is predefined to my personal prefrences
 	genfstab -U /mnt >> /mnt/etc/fstab
 
 	# For some reason the script can go on with the script. Need to spit the rest of installatio in another script and call it here.
-	arch-chroot /mnt /scripts/arch-chroot.sh 
+	# arch-chroot /mnt /scripts/arch-chroot.sh
+
+	echo ""
+	echo ""
+	echo ""
+	echo "$GREEN Please enter $ENDCOLOR $MAGENTA arch-chroot /mnt $ENDCOLOR $GREEN then curl arch-chroot script and run it!" 
 
 }
 
