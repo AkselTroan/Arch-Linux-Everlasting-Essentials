@@ -5,11 +5,11 @@
 	ln -sf /usr/share/zoneinfo/Europe/Oslo /etc/localtime
 	
 	echo ""
-	echo "Setting systemclock..."
+	echo "$GREEN Setting systemclock... $ENDCOLOR"
 	echo ""
 	hwclock --systohc
 
-	line=en_US.UTF-8 UTF-8; sed -i "/^#$line/ c$line" /etc/locale.gen
+	line="en_US.UTF-8 UTF-8"; sed -i "/^#$line/ c$line" /etc/locale.gen
 	locale-gen
 	# echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 	
@@ -46,59 +46,56 @@ EOT
 	
 	echo ""
 	echo ""
-	echo "Setting root password"
+	echo "$GREEN Setting root password $ENDCOLOR"
 
 	# Set password
 	passwd
 
 	echo ""
 	echo ""
-	echo "Adding a new user"
+	echo "$GREEN Adding a new user $ENDCOLOR"
 	echo ""
 	echo ""
 	useradd -m troan
-	echo "Setting password for troan"
+	echo "$GREEN Setting password for troan $ENDCOLOR"
 	passwd troan
 
 	echo ""
-	echo "Granting troan sudo privileges"
+	echo "$GREEN Granting troan sudo privileges $ENDCOLOR"
 	usermod -aG wheel,audio,video,optical,storage troan
 	echo ""
 	echo ""
 
-	echo "Installing sudo"
+	echo "$GREEN Installing sudo $ENDCOLOR"
 	echo ""
 	pacman -S sudo
 
 	echo ""
-	echo "Editing visudo and granting wheel group sudo privileges"
+	echo "$GREEN Editing visudo and granting wheel group sudo privileges $ENDCOLOR"
 	echo '%wheel ALL=(ALL) ALL' | sudo EDITOR='tee -a' visudo
 	echo ""
 
-	echo "Installing grub and other boot essentials"
+	echo "$GREEN Installing grub and other boot essentials $ENDCOLOR"
 	pacman -S grub efibootmgr dosfstools os-prober mtools
 
 	echo ""
-	echo "Setting up EFI"
+	echo "$GREEN Setting up EFI $ENDCOLOR"
 	echo ""
 	mkdir /boot/EFI
 	mount /dev/sda1 /boot/EFI
 
 	echo ""
-	echo "Setting up grub..."
+	echo "$GREEN Setting up grub... $ENDCOLOR"
 	echo ""
 
 	grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 
 	grub-mkconfig -o /boot/grub/grub.cfg
 
-	echo "Installing some essentials tools..."
+	echo "$GREEN Installing some essentials tools... $ENDCOLOR"
 	
 	pacman -S networkmanager git 
 
 	systemctl enable NetworkManager
 
-	exit 
-	umount -l /mnt
-
-	echo "Please shutdown the machine, remove the installation media and boot up again"
+	echo "$CYAN Please shutdown the machine, remove the installation media and boot up again $ENDCOLOR"
