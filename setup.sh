@@ -27,7 +27,6 @@ echo ' █████╗ ██████╗  ██████╗██╗ 
 echo "$ENDCOLOR"
 
 echo "$GREEN"
-echo '✩░▒▓▆▅▃▂▁𝐀𝐫𝐜𝐡 𝐋𝐢𝐧𝐮𝐱 || 𝐄𝐯𝐞𝐫𝐥𝐚𝐬𝐭𝐢𝐧𝐠 𝐄𝐬𝐬𝐞𝐧𝐭𝐢𝐚𝐥𝐬▁▂▃▅▆▓▒░✩'
 echo 'Found at: https://github.com/AkselTroan/Arch-Linux-Everlasting-Essentials.git'
 echo 'Written by Aksel Troan'
 echo "$ENDCOLOR"
@@ -110,7 +109,7 @@ install_i3(){
 install_arch_linux_part_one(){  # This is predefined to my personal prefrences
 	
 	echo "$RED Have you created partions. /dev/sda1 = EFI System, /dev/sda2 = Linux Swap and /dev/sda3 = Linux Filesystem? $ENDCOLOR"
-	read -p 'Type yes or no: ' -r PART_OK
+	read -p ' Type yes or no: ' -r PART_OK
 	
 	if [ "$PART_OK" == "no" ]; then
 		echo "$RED Quitting... $ENDCOLOR"
@@ -122,7 +121,6 @@ install_arch_linux_part_one(){  # This is predefined to my personal prefrences
 
 	# Verify the bootmode
 
-	echo "$RED HAVE TO SET THE PARTION CORRECT? FOLLOW MY TEMPLATE BEFOREHAND!!! $ENDCOLOR"
 	echo "$GREEN Verify boot mode $ENDCOLOR"
 	echo ""
 	echo ""
@@ -217,7 +215,7 @@ install_arch_linux_part_one(){  # This is predefined to my personal prefrences
 install_arch_linux_part_two(){
 
 	echo "$RED Have you arch-root to the /mnt? $ENDCOLOR"
-	read -p 'Type yes or no: ' -r ARCH_CHROOT
+	read -p ' Type yes or no: ' -r ARCH_CHROOT
 	if [ "$ARCH_CHROOT" == "no" ]; then
 		echo "$RED Quitting... $ENDCOLOR"
 		exit 1
